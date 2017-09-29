@@ -24,12 +24,11 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		//init drivetrain
 		leftDrive = new Spark(0);
-		rightDrive = new Spark(1);
-		leftDriveSecond = new Spark(3);
-		leftDriveSecond.setInverted(true);
-		rightDriveSecond = new Spark(4);
-		left = new MultiSpeedController(leftDrive, leftDriveSecond);
-		right = new MultiSpeedController(rightDrive, rightDriveSecond);
+		rightDrive = new Spark(2);
+		leftDriveSecond = new Spark(1);
+		rightDriveSecond = new Spark(3);
+		left = new MultiSpeedController(true, leftDrive, leftDriveSecond);
+		right = new MultiSpeedController(false, rightDrive, rightDriveSecond);
 		
 		// left drive is inverted since both motors are built identical
 		leftDrive.setInverted(true);
