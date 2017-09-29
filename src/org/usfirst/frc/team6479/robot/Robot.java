@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot {
 		//create the autoLogger
 		autoLogger = new AutoLogger(left, right);
 		//open it
-		autoSuccess = autoLogger.open();
+		autoSuccess = autoLogger.openForRead();
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class Robot extends IterativeRobot {
 		//if it should learn a new auto, make the logger, then open the logger
 		if(learnAuto) {
 			autoLogger = new AutoLogger(left, right);
-			autoLogger.open();
+			autoLogger.openForWrite();
 		}
 	}
 	
@@ -89,8 +89,11 @@ public class Robot extends IterativeRobot {
 	public void disabledInit() {
 		//when robot is disabled, if robot was learning a new auto the logger needs to be notified and save the log
 		//if the auto just ran, the logger also needs to be notified
-		if(learnAuto || autoSuccess) {
-			autoLogger.close();
+		if(learnAuto) {
+			autoLogger.closeWrite();
+		}
+		if(autoSuccess) {
+			autoLogger.closeRead();
 		}
 	}
 	

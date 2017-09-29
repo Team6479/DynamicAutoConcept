@@ -16,10 +16,22 @@ public class AutoLogger {
 		this.allMotorControllers = allMotorControllers;
 	}
 	//return true if successful
-	public boolean open() {
+	public boolean openForWrite() {
 		try 
 		{
 			write = new PrintWriter(Robot.AUTO_FILE);
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	//return true if successful
+	public boolean openForRead() {
+		try 
+		{
 			read = new FileReader(Robot.AUTO_FILE);
 		} 
 		catch (FileNotFoundException e) 
@@ -30,10 +42,14 @@ public class AutoLogger {
 		return true;
 	}
 	//return true if successful
-	public boolean close() {
+	public boolean closeWrite() {
+		write.close();
+		return true;
+	}
+	//return true if successful
+	public boolean closeRead() {
 		try 
 		{
-			write.close();
 			read.close();
 		}
 		catch (IOException e) 
