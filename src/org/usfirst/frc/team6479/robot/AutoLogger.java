@@ -106,7 +106,7 @@ public class AutoLogger {
 		//remove the ending brackets
 		input = input.substring(1, input.length() - 1);
 		//split the string for character arrangement ][
-		String[] speeds = input.split("][");
+		String[] speeds = input.split("\\]\\[");
 		
 		//loop through each speed and speed controller and set the speed controller to the speed
 		for(int i = 0; i < speeds.length && i < allMotorControllers.length; i++) {
