@@ -80,7 +80,9 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		racing();
 		//log
-		autoLogger.log();
+		if(learnAuto) {
+			autoLogger.log();
+		}
 	}
 	
 	@Override
