@@ -15,7 +15,7 @@ public class AutoLogger {
 	public AutoLogger(SpeedController... allMotorControllers) {
 		this.allMotorControllers = allMotorControllers;
 	}
-	//return true if succsefull
+	//return true if successful
 	public boolean open() {
 		try 
 		{
@@ -29,7 +29,7 @@ public class AutoLogger {
 		}
 		return true;
 	}
-	//return true if succsefull
+	//return true if successful
 	public boolean close() {
 		try 
 		{
@@ -72,7 +72,7 @@ public class AutoLogger {
 				return false;
 			}
 			//10 is ascii for \n
-			//if next char is a new line, end the cycle and calculate speed, otherwise keep adding the charcters to input
+			//if next char is a new line, end the cycle and calculate speed, otherwise keep adding the characters to input
 			if(next == 10) {
 				endOfCycle = true;
 			}
@@ -89,10 +89,10 @@ public class AutoLogger {
 		//the string is in format [s1][s2]...[sN]
 		//remove the ending brackets
 		input = input.substring(1, input.length() - 1);
-		//split the string for charcter arrangment ][
+		//split the string for character arrangement ][
 		String[] speeds = input.split("][");
 		
-		//loop through each speed and speed controller and set the speed controler to the speed
+		//loop through each speed and speed controller and set the speed controller to the speed
 		for(int i = 0; i < speeds.length && i < allMotorControllers.length; i++) {
 			allMotorControllers[i].set(Double.parseDouble(speeds[i]));
 		}

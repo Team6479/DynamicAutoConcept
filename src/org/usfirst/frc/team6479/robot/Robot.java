@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
 		
 	}
 
-	//was the auto logger succesful in opening
+	//was the auto logger successful in opening
 	private boolean autoSuccess;
 	
 	@Override
@@ -60,14 +60,14 @@ public class Robot extends IterativeRobot {
 		}
 	}
 
-	//wether or not the robot should learm a new auto
+	//whether or not the robot should learn a new auto
 	private boolean learnAuto;
 	//logger for auto
 	private AutoLogger autoLogger;
 	
 	@Override
 	public void teleopInit() {
-		//wether or not the robot should learn a new auto
+		//whether or not the robot should learn a new auto
 		learnAuto = SmartDashboard.getBoolean("DB/Button 0", false);
 		//if it should learn a new auto, make the logger, then open the logger
 		if(learnAuto) {
@@ -85,7 +85,7 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void disabledInit() {
-		//when robot is disablled, if robot was learning a new auto the logger needs to be notified and save the log
+		//when robot is disabled, if robot was learning a new auto the logger needs to be notified and save the log
 		//if the auto just ran, the logger also needs to be notified
 		if(learnAuto || autoSuccess) {
 			autoLogger.close();
