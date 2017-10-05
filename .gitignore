@@ -1,7 +1,3 @@
-#Eclipse Project Files
-.classpath
-.project
-
 #Build Locations
 /bin/
 /build/
